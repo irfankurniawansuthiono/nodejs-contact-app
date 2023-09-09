@@ -1,0 +1,48 @@
+.modal.fade#staticBackdrop(data-bs-backdrop='static', data-bs-keyboard='false', tabindex='-1', aria-labelledby='staticBackdropLabel', aria-hidden='true')
+  .modal-dialog.modal-dialog-centered
+    .modal-content
+      .modal-header
+        h1.modal-title.fs-5#staticBackdropLabel.text-success Add contact to database
+        button.btn-close(data-bs-dismiss='modal', aria-label='Close', type='button')
+      .modal-body
+        form(method="post").needs-validation
+            .mb-3
+                .form-group
+                    label(for='name-input', class='form-label') Full-Name
+                        span.text-danger  *
+                    input(type='text', id='name-input' name="nama" value="name here!").form-control
+                    // Pesan validasi
+                    .invalid-feedback Please enter a valid name.
+                    .valid-feedback Looks good😁👍
+
+            .mb-3
+                .form-group
+                    label(for='region-input', class='form-label') Region
+                        span.text-danger  *
+                    select#region-input(name="region" class='form-select form-control w-100').form-select
+                        option(disabled, selected) Choose a region
+                    // Pesan validasi
+                    .invalid-feedback Please select a region.
+                    .valid-feedback Looks good😁👍
+
+            .mb-3
+                .form-group
+                    label(for='mobile-number-input', class='form-label') Mobile-Number
+                        span.text-danger  *
+                    input(type='text', class='form-control', id='mobile-number-input' name="nohp" value="mobile number here!")
+                    // Pesan validasi
+                    .invalid-feedback Please enter a valid mobile number.
+                    .valid-feedback Looks good😁👍
+
+            .mb-3
+                .form-group
+                    label(for='email-input', class='form-label') E-Mail
+                    input(type='email', class='form-control', id='email-input', name="email" value = "email here!")
+                    // Pesan validasi
+                    .invalid-feedback Please enter a valid email address.
+                    .valid-feedback Looks good😁👍
+
+            .modal-footer
+                button.btn.btn-secondary(data-bs-dismiss='modal', type='button') Close
+                button.btn.btn-primary(type='submit') Submit
+

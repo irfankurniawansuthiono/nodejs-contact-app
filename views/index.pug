@@ -1,0 +1,49 @@
+extends layouts/layout.pug 
+
+block body
+    include components/modal-form.pug
+    //- container - body start
+    .container.mt-5
+        .row.d-flex.w-100.h-100.justify-content-center
+            .col-md-8
+                .pembungkus.d-flex.justify-content-between.h-auto.align-items-center.w-100
+                    h1 Contact List
+                    div 
+                        button.btn.btn-success.addcontact(data-bs-toggle='modal',data-bs-target='#staticBackdrop', type='button')
+                            i.bi.bi-person-fill-add
+                            |  Add Contact
+
+
+                - const kontak = contacts.length;
+                if  kontak === 0
+                    table.table.table-borderless
+                        thead
+                            tr
+                                th(colspan="5")
+                                    .alert(role="alert").alert-danger #{kontak} Contact found in database
+                                
+                else
+                    table.table.table-striped.table-hover
+                        
+                        thead.table-dark
+                            tr
+                                th(scope='col') No
+                                th(scope='col') Name 
+                                th(scope='col') Region
+                                th(scope='col' colspan="2").text-center Action
+                        tbody
+                            - let no = 0;
+                            each contact, index in contacts
+                                include components/modal-detail.pug
+                                tr
+                                    th(scope='row').text-center #{no+=1}
+                                    td #{contact.nama}
+                                    td #{contact.region}
+                                    td.text-end
+                                        button.btn.btn-primary(type='button' data-bs-toggle="modal" data-bs-target="#exampleModal" data-contact-id= index).details
+                                            i.bi.bi-info-circle-fill 
+                                            //- span Details
+                                    td.text-start
+                                        button.btn.btn-danger(type='button', data-contact-id = `${contact.id}`).delete
+                                            i.bi.bi-trash-fill 
+                                            //- span Delete

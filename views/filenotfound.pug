@@ -1,0 +1,12 @@
+extends layouts/layout.pug
+
+block body 
+    div.text-center.row.d-flex.justify-content-center.align-items-center.vw-100.vh-100
+        div.col-md-6
+            img.img-fluid(src='https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg', alt='')
+            p.fs-3
+                span.text-danger Opps!
+                |  Page not found.
+            p.lead
+                | The page you’re looking for doesn’t exist.
+            a.btn.btn-warning(href='/') Go Home
